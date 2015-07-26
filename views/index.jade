@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1=doc.getStructuredText('page-basic.title').asText()
+  div!=doc.getStructuredText('page-basic.content').asText()
+    
+  if crumbs
+      ul
+          each crumb in crumbs
+              li #{crumb.uri} | #{crumb.type} | #{crumb.title}
+  if path
+      ul
+          each p in path
+              li=p
